@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% block body_block %}
+{% load static %}
+
+<div class="jumbotron">
+    <h1 class="display-4">Vitamin Deficiency Prediction Result</h1>
+    <hr class="my-4">
+
+    <div class="row">
+        <div class="col-md-4">
+            <h4>Patient Profile</h4>
+            <p><strong>Age:</strong> {{ age }}</p>
+            <p><strong>Gender:</strong> {{ gender }}</p>
+            <p><strong>BMI:</strong> {{ bmi }}</p>
+            <p><strong>Income Level:</strong> {{ income_level }}</p>
+            <p><strong>Latitude Region:</strong> {{ latitude_region }}</p>
+            <p><strong>Smoking Status:</strong> {{ smoking_status }}</p>
+            <p><strong>Alcohol Consumption:</strong> {{ alcohol_consumption }}</p>
+            <p><strong>Exercise Level:</strong> {{ exercise_level }}</p>
+            <p><strong>Diet Type:</strong> {{ diet_type }}</p>
+            <p><strong>Sun Exposure:</strong> {{ sun_exposure }}</p>
+        </div>
+
+        <div class="col-md-4">
+            <h4>Nutritional Data (% RDA)</h4>
+            <p><strong>Vitamin A:</strong> {{ vitamin_a_percent_rda }}%</p>
+            <p><strong>Vitamin C:</strong> {{ vitamin_c_percent_rda }}%</p>
+            <p><strong>Vitamin D:</strong> {{ vitamin_d_percent_rda }}%</p>
+            <p><strong>Vitamin E:</strong> {{ vitamin_e_percent_rda }}%</p>
+            <p><strong>Vitamin B12:</strong> {{ vitamin_b12_percent_rda }}%</p>
+            <p><strong>Folate:</strong> {{ folate_percent_rda }}%</p>
+            <p><strong>Calcium:</strong> {{ calcium_percent_rda }}%</p>
+            <p><strong>Iron:</strong> {{ iron_percent_rda }}%</p>
+            <h4 class="mt-3">Serum Levels</h4>
+            <p><strong>Hemoglobin:</strong> {{ hemoglobin_g_dl }}</p>
+            <p><strong>Serum Vit D:</strong> {{ serum_vitamin_d_ng_ml }}</p>
+            <p><strong>Serum Vit B12:</strong> {{ serum_vitamin_b12_pg_ml }}</p>
+            <p><strong>Serum Folate:</strong> {{ serum_folate_ng_ml }}</p>
+        </div>
+
+        <div class="col-md-4">
+            <h4>Symptoms Reported</h4>
+            <p><strong>Total Symptoms:</strong> {{ symptoms_count }}</p>
+            <p><strong>Night Blindness:</strong> {{ has_night_blindness }}</p>
+            <p><strong>Fatigue:</strong> {{ has_fatigue }}</p>
+            <p><strong>Bleeding Gums:</strong> {{ has_bleeding_gums }}</p>
+            <p><strong>Bone Pain:</strong> {{ has_bone_pain }}</p>
+            <p><strong>Muscle Weakness:</strong> {{ has_muscle_weakness }}</p>
+            <p><strong>Numbness/Tingling:</strong> {{ has_numbness_tingling }}</p>
+            <p><strong>Memory Problems:</strong> {{ has_memory_problems }}</p>
+            <p><strong>Pale Skin:</strong> {{ has_pale_skin }}</p>
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="alert alert-info text-center" role="alert">
+        <h2>Predicted Disease: <strong>{{ y_pred }}</strong></h2>
+    </div>
+
+    <div class="text-center">
+        <a href="{% url 'vitApp:VDD' %}" class="btn btn-primary btn-lg">Run New Prediction</a>
+    </div>
+</div>
+
+{% endblock %}
